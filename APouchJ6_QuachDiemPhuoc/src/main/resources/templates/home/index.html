@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(view)">
+<head>
+		<meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Gota eCommerce HTML5 Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.html">
+		<link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+        <!-- Place favicon.ico in the root directory -->
+
+		<!-- CSS here -->
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/assets/css/animate.min.css">
+        <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="/assets/css/futura-std-font.css">
+        <link rel="stylesheet" href="/assets/css/meanmenu.css">
+        <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="/assets/css/slick.css">
+        
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/responsive.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="shopping-cart-app" 
+	  ng-controller="shopping-cart-ctrl">
+	<header class="header-area">
+        <div class="gota_top bg-soft d-none d-sm-block">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                        <div class="gota_lang">
+                            <ul>
+                                <li><a href="#">VND<i class="fal fa-chevron-down"></i></a>
+                                    <ul class="additional_dropdown">
+                                        <li><a href="#">USD</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Việt Nam<i class="fal fa-chevron-down"></i></a>
+                                    <ul class="additional_dropdown">
+                                        <li><a href="#">English</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 offset-xl-5 col-lg-6 col-md-6 col-sm-6 text-end">
+                        <div class="gota_right">
+                            <ul>
+                                 <li><a href="cart.html">Yêu Thích</a></li>
+                                <li><a href="#">Thanh Toán</a></li>
+                                <li><a href="login.html">Đăng Nhập &amp; Đăng Kí</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gota_bottom position-relative">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 d-none d-sm-block">
+                        <div class="gota_search">
+                            <form class="search_form">
+                                <button class="search_action"><i class="fal fa-search d-sm-none d-md-block"></i></button>
+                                <input type="text" placeholder="search">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-4 col-sm-4">
+                        <div class="sidemenu sidemenu-1 d-lg-none d-md-block">
+                            <a class="open" href="#"><i class="fal fa-bars"></i></a>
+                        </div>
+                        <div class="main-menu">
+                            <nav id="mobile-menu" style="display: block;">
+                                <ul>
+                               	<!-- HOME -->
+                                    <li class="menu-item-has-children"><a href="#">Trang Chủ </a></li>
+                                <!-- NIKE -->
+                                    <li class="menu-item-has-children"><a href="#">NIKE</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">NIKE AIR FORCE 1</a></li>
+                                            <li><a href="#">NIKE JORDAN</a></li>
+                                            <li><a href="#">NIKE SB DUNK</a></li>
+                                            <li><a href="#">NIKE BLAZER</a></li>
+                                            <li><a href="#">NIKE M2K</a></li>
+                                        </ul>
+                                    </li>
+                                <!-- YEZZY -->
+                                    <li class="menu-item-has-children"><a href="#">YEZZY</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">YEEZY 350 V2</a></li>
+                                            <li><a href="#">YEEZY 700</a></li>
+                                        </ul>
+                                    </li>    
+                                <!-- VANS -->        
+                                        <li class="menu-item"><a href="#">VANS</a></li>
+                                   
+                                    <li><a class="d-none d-xl-block" href="/ApouchJ6/home"><img class="pl-50 pr-50" src="/assets/img/logo/P.png" alt="" style="width: 200px;"></a></li>
+                                <!-- CONVERSE -->        
+                                        <li class="menu-item-has-children"><a href="#">CONVERSE</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">CONVERSE 1970S</a></li>
+                                                <li><a href="#">CONVERSE CDG</a></li>
+                                            </ul>
+                                        </li>    
+                                <!-- LUXURY -->        
+                                        <li class="menu-item-has-children"><a href="#">LUXURY</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">MCQUEEN</a></li>
+                                                <li><a href="#">GUCCI</a></li>
+                                                <li><a href="#">DIOR</a></li>
+                                                <li><a href="#">XVESSEL</a></li>
+                                            </ul>
+                                        </li>
+                                <!-- MORE -->        
+                                        <li class="menu-item-has-children"><a href="#">TÍNH NĂNG KHÁC</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">MCQUEEN</a></li>
+                                                <li><a href="#">GUCCI</a></li>
+                                                <li><a href="#">DIOR</a></li>
+                                                <li><a href="#">XVESSEL</a></li>
+                                            </ul>
+                                        </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
+                        <div class="gota_cart gotat_cart_1 text-end">
+                            <a href="javascript:void(0)"><i class="fal fa-shopping-cart"></i>Giỏ Hàng<span class="counter"> ({{cart.count}})</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+  
+  <!-- search end  -->
+  <div class="search_area">
+        <div class="search_close">
+            <span><i class="fal fa-times"></i></span>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div class="search-wrapper text-center">
+                        <h2>search</h2>
+                        <div class="search-filtering pt-30">
+                            <div class="search_tab">
+                                <ul class="nav nav-tabs justify-content-center mb-55" id="myTab2" role="tablist">
+                                    <!-- TÌM THEO LOẠI SẢN PHẨM -->
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="home-tab2" data-bs-toggle="tab"
+                                            data-bs-target="#home2" type="button" role="tab"
+                                            aria-selected="true">Tất cả Thương hiệu</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="profile-tab2" data-bs-toggle="tab"
+                                            data-bs-target="#profile2" type="button" role="tab" 
+                                            aria-selected="false">Basketball</button>
+                                    </li>
+                                    <!-- TÌM THEO LOẠI SẢN PHẨM -->
+                                </ul>
+                                <div class="tab-content" id="myTabContent2">
+                                    <div class="tab-pane fade show active" id="home2" role="tabpanel">
+    
+                                    </div>
+                                    <div class="tab-pane fade" id="profile2" role="tabpanel">
+    
+                                    </div>
+                                    <div class="tab-pane fade" id="search2" role="tabpanel">
+    
+                                    </div>
+                                    <div class="tab-pane fade" id="sportswear" role="tabpanel"
+                                        >
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_search">
+                            <form action="#">
+                                <input type="text" name="search" placeholder="search products">
+                                <button class="m-search"><i class="fal fa-search d-sm-none d-md-block"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- search end  -->
+  
+    
+  <!-- cart area start  -->
+  <div class="cart__sidebar">
+    <div class="container">
+        <div class="cart__content">
+            <div class="cart-text">
+                <h3 class="mb-40">Shopping cart</h3>
+                <div ng-repeat="item in cart.items" class="add_cart_product">
+                    <div class="add_cart_product__thumb">
+                        <img th:src="@{|/assets/img/product/{{item.hinhAnh}}|}" alt="">
+                    </div>
+                    <div class="add_cart_product__content">
+                        <h5><a href="shop.html">{{item.tenSP}}</a></h5>
+                        <p>{{item.qty}} × ${{item.giamGia}} : ${{item.qty*item.giamGia|number:0}}</p>
+                        <button ng-click="cart.remove(item.id)" class="cart_close"><i class="fal fa-times"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-icon">
+                <i class="fal fa-times"></i>
+            </div>
+            <div class="cart-bottom">
+                <div class="cart-bottom__text">
+                    <span>Subtotal:</span>
+                    <span class="end">${{cart.amount|number:0}}</span>
+                    <a th:href="@{/cart/view}">view cart</a>
+                    <a th:href="@{/order/checkout}">checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cart-offcanvas-overlay"></div>
+<!-- cart area end  -->
+    
+    
+    			<div class="ps-section--page" th:replace="${view}"></div>
+    
+    
+    
+        <!-- footer area start -->
+    <footer class="footer_area fix">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                    <div class="company__info  wow fadeInUp " data-wow-duration=".s" data-wow-delay=".3s">
+                        <h3 class="f-title">Thông tin liên lạc</h3>
+                        <ul>
+                            <li>Địa Chỉ: 05-Đường số 8, Phường Bình Hưng Hòa A</li>
+                            <li>Quận Bình Tân, TP.Hồ Chí Minh.</li>
+                            <li>Email: <a href="#" class="__cf_email__" data-cfemail="#">diemphuoc5555@gmail.com</a></li>
+                            <li>Fax: (+84) 0366 533 889 - (+84) 096 323 0016</li>
+                        </ul>
+                        <div class="social__media mb-30">
+                            <h3 class="f-title">Theo dõi chúng tôi</h3>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12">
+                    <div class="company__info wow fadeInUp " data-wow-duration=".7s" data-wow-delay=".4s">
+                        <h3 class="f-title">Thắc mắc</h3>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="accordion.html">Delivery Information</a></li>
+                            <li><a href="accordion.html">Sale Terms & Conditions</a></li>
+                            <li><a href="accordion.html">Privacy Notice</a></li>
+                            <li><a href="accordion.html">Shopping FAQs</a></li>
+                            <li><a href="accordion.html">Returns & Refundss</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12">
+                    <div class="company__info wow fadeInUp " data-wow-duration=".8s" data-wow-delay=".5s">
+                        <h3 class="f-title">Thương hiệu nỗi tiếng</h3>
+                        <ul>
+                            <li><a href="shop.html">Sneaker</a></li>
+                            <li><a href="shop.html">Clothing & Stools</a></li>
+                            <li><a href="shop.html">Helmet for Women’s</a></li>
+                            <li><a href="shop.html">Basketball</a></li>
+                            <li><a href="shop.html">Mens Running</a></li>
+                            <li><a href="shop.html">Footwear</a></li>
+                            <li><a href="shop.html">Outerwears</a></li>
+                            <li><a href="shop.html">Men’s</a></li>
+                            <li><a href="shop.html">Kids & Young</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 offset-xl-1 col-lg-6 col-md-6 col-sm-12">
+                    <div class="company__info wow fadeInUp " data-wow-duration=".9s" data-wow-delay=".6s">
+                        <h3 class="f-title">get in touch</h3>
+                        <p>Sign up for all the news about our latest arrivals and<br>
+                            get an exclusive early access shopping. Join <br>
+                            <span>60.000+ Subscribers</span> and get a new discount coupon<br> on every Saturday.
+                        </p>
+                        <div class="subscribe pt-20">
+                            <form action="#">
+                                <input type="email" placeholder="Enter your email here..." />
+                                <button>Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom pb-10 mt-60">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 ">
+                        <p>Copyright © <span>Pouch Store</span> All Rights Reserved. Powered by <span><a href="https://www.facebook.com/phuoc.quachdiem/">Quach Diem Phuoc</a></span>
+                        </p>
+                    </div>
+                    <div class="col-xl-5 offset-xl-2 col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-menu">
+                            <ul class="text-end">
+                                <li><a href="contact.html">Site Map</a></li>
+                                <li><a href="accordion.html">Search Terms</a></li>
+                                <li><a href="shop.html">Advanced Search </a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer area end -->
+
+
+		<!-- JS here -->
+        <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/assets/js/vendor/modernizr-3.5.0.min.html"></script>
+        <script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="/assets/js/popper.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/isotope.pkgd.min.js"></script>
+        <script src="/assets/js/one-page-nav-min.js"></script>
+        <script src="/assets/js/slick.min.js"></script>
+        <script src="/assets/js/jquery.meanmenu.min.js"></script>
+        <script src="/assets/js/ajax-form.js"></script>
+        <script src="/assets/js/wow.min.js"></script>
+        <script src="/assets/js/jquery.scrollUp.min.js"></script>
+        <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="/assets/js/plugins.js"></script>
+        <script src="/assets/js/swiper-bundle.min.js"></script>
+        <script src="/assets/js/countdown.js"></script>
+        <script src="/assets/js/main.js"></script>
+        
+		<script src="/assets/js/shopping_cart_app.js"></script>
+</body>
+</html>

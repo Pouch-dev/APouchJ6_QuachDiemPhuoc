@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	th:replace="~{/home/index::dynamic(~{::body})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- breadcrumb area start -->
+		<div class="slider-active2 swiper-container swiper-container-initialized swiper-container-vertical swiper-container-pointer-events">
+            <div class="swiper-wrapper" id="swiper-wrapper-e629f3c2ec1072d7b" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+                <div class="swiper-slide slider-item bgclr3 pb-200 swiper-slide-active" role="group" aria-label="1 / 1" style="height: 830px;">
+                    <div class="shapes_3">
+                        <a class="popup-video" href="https://www.youtube.com/watch?v=bW3xJMioVuY"><i class="fal fa-play absoulute play"></i></a>
+                        <a class="popup-video" href="https://www.youtube.com/watch?v=bW3xJMioVuY"><i class="fal fa-pause absoulute pause"></i></a>
+                        <h2 class="absoulute text_3">Top sale</h2>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                <div class="slider__content pt-190">
+                                    <h4 class="mb-60 wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.3s; animation-name: fadeInUp;"><i class="fal fa-pause"></i>Top sale products</h4>
+                                    <h2 class="mb-80 wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.6s; animation-name: fadeInUp;">Phong Cách<br>Riêng Bạn</h2>
+                                    <a class="button-style-3 wow fadeInUp" data-wow-duration=".5s" data-wow-delay="1s" th:href="@{/ApouchJ6/home}" style="visibility: visible; animation-duration: 0.5s; animation-delay: 1s; animation-name: fadeInUp;">Mua Ngay</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 offset-xl-1 col-lg-8 col-md-8 col-sm-12 d-none d-lg-block">
+                                <div class="slider_image_3">
+                                    <img src="/assets/img/slider/slider-img-3.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-bullets-dynamic swiper-pagination-clickable" style="width: 40px;"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span></div>
+          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+    <!-- breadcrumb area end -->
+
+    <div class="f_cart_area pt-110 mb-100">
+        <div class="container">
+            <div class="row">
+            	<h2 class="page-title" style="color: black; text-align: center">Cart</h2>
+                <div class="col-xl-8 col-lg-8 col-md-12">
+                    <div class="cart_table">
+                        <table>
+                            <tr> 
+                                <td>Product</td>
+                                <td>Name</td>
+                                <td>price</td>
+                                <td>Quantity</td>
+                                <td>Total</td>
+                                
+                               </tr>
+                            <tbody>
+                                <tr ng-repeat="item in cart.items" class="max-width-set">
+                                    <td>
+                                        <img th:src="@{|/assets/img/product/{{item.hinhAnh}}|}" alt="">
+                                    </td>
+                                    <td>{{item.tenSP}}</td>
+                                    <td>${{item.giamGia|number:0}}  
+                                    </td>
+                                    <td><div class="viewcontent__action single_action pt-30">
+                                        <span><input ng-change="cart.saveTolocalStorage()" ng-model="item.qty" type="number" placeholder="1"></span>
+                                    </div></td>
+                                     <td>
+                                        ${{item.qty*item.giamGia|number:0}}
+                                    </td>
+                                    <td class="width-set">
+                                        <a ng-click="cart.remove(item.id)" href="javascript:void(0)"><i
+                                            class="fal fa-times-circle"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="design-footer">
+                                    <td>
+                                        <input type="text" placeholder="Coupon Code">
+                                    </td>
+                                    <td><button type="submit">Apply Coupon</button></td>
+                                    <td colspan="3"><a ng-click="cart.clear()" href="#">Clear Cart</a></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-12">
+                    <div class="cart__acount">
+                        <h5>Cart totals</h5>
+                      <table>
+                          <tr class="first-child">
+                              <td>Subtotal</td>
+                              <td>${{cart.amount|number:0}}</td>
+                          </tr>
+                          <tr class="first-child lastchild">
+                              <td>Shipping</td>
+                              <td>Enter your address to view shipping options <br>
+                                Calculate shipping</td>
+                          </tr>
+                          <tr class="first-child">
+                              <td>Total</td>
+                              <td>${{cart.amount|number:0}}</td>
+                          </tr>
+                          <tr>   
+                              <td colspan="2">
+                                  <a href="checkout.html"><input type="submit" value="procced to checkout"></a>
+                              </td>
+                          </tr>
+                      </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <!-- popup area start -->
+    <div class="overlay"></div>
+    <div class="product-popup">
+        <div class="view-background">
+            <div class="row">
+                <div class="col-xl-5 col-lg-5 col-md-5">
+                    <div class="quickview">
+                        <div class="quickview__thumb">
+                            <img src="/assets/img/quick_view/25.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-7 col-md-7">
+                    <div class="viewcontent">
+                        <div class="viewcontent__header">
+                            <h2>Brown Leather Bags</h2>
+                            <a class="view_close product-p-close" href="javascript:void(0)"><i
+                                    class="fal fa-times-circle"></i></a>
+                        </div>
+                        <div class="viewcontent__rating">
+                            <i class="fal fa-star ratingcolor"></i>
+                            <i class="fal fa-star ratingcolor"></i>
+                            <i class="fal fa-star ratingcolor"></i>
+                            <i class="fal fa-star"></i>
+                        </div>
+                        <div class="viewcontent__price">
+                            <h4><span>$</span>99.00</h4>
+                        </div>
+                        <div class="viewcontent__stock">
+                            <h4>Available :<span> In stock</span></h4>
+                        </div>
+                        <div class="viewcontent__details">
+                            <p>Anlor sit amet, consectetur adipiscing elit. Fusce condimentum est lacus, non pretium
+                                risus lacinia vel. Fusce eget turpis orci.</p>
+                        </div>
+                        <div class="viewcontent__action">
+                            <span>Qty</span>
+                            <span><input type="number" placeholder="1"></span>
+                            <span><a href="#">add to cart</a></span>
+                            <span><i class="fal fa-heart"></i></span>
+                            <span><i class="fal fa-info-circle"></i></span>
+                        </div>
+                        <div class="viewcontent__footer">
+                            <ul>
+                                <li>Category:</li>
+                                <li>SKU:</li>
+                                <li>Brand:</li>
+                            </ul>
+                            <ul>
+                                <li>Watches</li>
+                                <li>2584-MK63</li>
+                                <li>Brenda</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- popup area end -->
+</body>
+</html>
