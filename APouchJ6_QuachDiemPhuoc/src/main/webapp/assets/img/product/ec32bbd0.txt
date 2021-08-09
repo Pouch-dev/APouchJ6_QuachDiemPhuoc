@@ -1,0 +1,9 @@
+id: AY48
+name: Giày Adidas Yeezy 350 V2 Cinder Reflective
+price: 2.000.000 ₫
+sale: 1.190.000 ₫
+size:
+category: Giày Adidas
+keyword: giày yeezy phản quang, yeezy 350 phản quang
+description: null
+video: https://youtu.be/hHWAmO9BncY

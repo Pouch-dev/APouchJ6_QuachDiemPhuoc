@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	th:replace="~{/home/index::dynamic(~{::body})}">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="checkout_area pt-80">
+        <div class="container">
+            <div class="notification__message">
+                <p><i class="fal fa-window-maximize"></i>Returning customer? Click here to <a th:href="@{/security/login/form}">login</a></p>
+                <p><i class="fal fa-window-maximize"></i>Have a coupon? Click here to enter your code</p>
+            </div>
+            <div class="row">
+                <div class="col-xl-7 col-lg-7 col-md-12">
+                    <div class="checkout_form mb-100">
+                        <form action="#">
+                            <div class="row mb-30">
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="checkout__wrap">
+                                        <label>Username <span>*</span></label>
+                                        <div class="form-control" id="username">[[${#request.remoteUser}]]</div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="checkout__wrap">
+                                        <label>Order Date: <span>*</span></label>
+                                        <div class="form-control">{{order.createDate|date:'dd-MM-yyyy'}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout__wrap">
+                                <label>Tỉnh / Thành <span>*</span></label>
+                                <select name="country">
+                                    <option value="Quận Bình Tân">Quận Bình Tân</option>
+                                    <option value="Quận 1">Quận 1</option>
+                                    <option value="Quận 2">Quận 2</option>
+                                    <option value="Quận 3">Quận 3</option>
+                                    <option value="Quận 4">Quận 4</option>
+                                    <option value="Quận 5">Quận 5</option>
+                                    <option value="uận 12">Quận 12</option>
+                                </select>
+                            </div>
+                            <div class="checkout__wrap">
+                                <label>Địa chỉ <span>*</span></label>
+                                <input ng-model="order.address" class="mb-20" type="text" name="#" placeholder="Địa chỉ nhà">
+                            </div>
+                            <div class="checkout__wrap">
+                                <label>Số Điện Thoại <span>*</span></label>
+                                <input type="text" placeholder="Số điện thoại">
+                            </div>
+                            <div class="checkout__wrap">
+                                <label>Email <span>*</span></label>
+                                <input type="email" name="email">
+                            </div>
+                            <div class="checkout__wrap">
+                                <label>Ghi chú <span></span></label>
+                                <textarea placeholder="Note about your order, e.g special note for delivery"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-5 col-md-12">
+                    <div class="cart__acount ml-50">
+                        <h5>Your order</h5>
+                      <table>
+                       <thead>
+                       <tr>
+                           <th>Product</th>
+                           <th>Subtotal</th>
+                           <th></th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                           <tr class="first-child-2" ng-repeat="item in cart.items">
+                               <td><a href="#">{{item.tenSP}} x {{item.qty}}</a></td>
+                               <td><a href="#">${{item.giamGia|number:0}}</a></td>
+                               <td><button ng-click="cart.remove(item.id)"><i class="fal fa-times"></i></button></td>
+                           </tr>
+                       </tbody>
+                   </table>
+                      <div class="checkout__accordion mt-30">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Check payments 
+                                </button>
+                              </h2>
+                              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Cash on delivery 
+                                </button>
+                              </h2>
+                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Pay with cash upon delivery.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    PayPal
+                                </button>
+                              </h2>
+                              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Cash on delivery 
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    <div class="terms pt-50 pb-20">
+                        <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy</p>
+                        <div class="check_term">
+                            <input type="checkbox">
+                            <p>I have read and agree to the website terms and conditions <span>*</span></p>
+                        </div>
+                        <div class="order-button">
+                            <button ng-click="order.purchase()" type="submit">place order</button>
+                        </div>
+                    </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

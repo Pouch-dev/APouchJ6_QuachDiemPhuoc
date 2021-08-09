@@ -53,7 +53,7 @@ public interface SanPhamService {
 	<S extends SanPham> List<S> saveAll(Iterable<S> entities);
 
 	SanPham findById(Integer id);
-
+	
 	List<SanPham> findAllById(Iterable<Integer> ids);
 
 	List<SanPham> findAll(Sort sort);
@@ -66,6 +66,12 @@ public interface SanPhamService {
 
 	<S extends SanPham> S save(S entity);
 
-	List<SanPham> findByCateID(Integer cid);
+	List<SanPham> findByCateID(String cid);
+
+	SanPham create(SanPham sanpham);
+
+	SanPham update(SanPham sanpham);
+
+	void delete(Integer id);
 
 }

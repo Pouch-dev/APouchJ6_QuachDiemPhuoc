@@ -3,12 +3,12 @@
 <head>
 		<meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Gota eCommerce HTML5 Template</title>
+        <title>APouch Shoes</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="manifest" href="site.html">
-		<link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="/assets/img/logo/P.ico">
         <!-- Place favicon.ico in the root directory -->
 
 		<!-- CSS here -->
@@ -52,9 +52,10 @@
                     <div class="col-xl-4 offset-xl-5 col-lg-6 col-md-6 col-sm-6 text-end">
                         <div class="gota_right">
                             <ul>
-                                 <li><a href="cart.html">Yêu Thích</a></li>
-                                <li><a href="#">Thanh Toán</a></li>
-                                <li><a href="login.html">Đăng Nhập &amp; Đăng Kí</a></li>
+                                 <li><a th:href="@{/order/list}">Yêu Thích</a></li>
+                                <li><a th:href="@{/order/checkout}">Thanh Toán</a></li>
+                                <li th:unless="${#request.remoteUser}"><a th:href="@{/security/login/form}">Đăng Nhập &amp; Đăng Kí</a></li>
+                                <li th:if="${#request.remoteUser}"><a th:href="@{/security/login/form}">Xin Chào [[${#request.remoteUser}]]</a></li>
                             </ul>
                         </div>
                     </div>
@@ -80,7 +81,7 @@
                             <nav id="mobile-menu" style="display: block;">
                                 <ul>
                                	<!-- HOME -->
-                                    <li class="menu-item-has-children"><a href="#">Trang Chủ </a></li>
+                                    <li class="menu-item-has-children"><a th:href="@{/ApouchJ6/home}">Trang Chủ </a></li>
                                 <!-- NIKE -->
                                     <li class="menu-item-has-children"><a href="#">NIKE</a>
                                         <ul class="sub-menu">
@@ -121,12 +122,18 @@
                                 <!-- MORE -->        
                                         <li class="menu-item-has-children"><a href="#">TÍNH NĂNG KHÁC</a>
                                             <ul class="sub-menu">
-                                                <li><a href="#">MCQUEEN</a></li>
-                                                <li><a href="#">GUCCI</a></li>
-                                                <li><a href="#">DIOR</a></li>
-                                                <li><a href="#">XVESSEL</a></li>
+                                                <li><a th:href="@{/order/listorder}">Danh sách đơn hàng</a></li>
+                                                <li><a th:href="@{/cart/view}">Giỏ hàng</a></li>
+                                                <li><a th:href="@{/order/list}">Yêu thích</a></li>
+                                                <li><a th:href="@{/security/logout}">Đăng xuất</a></li>
+                                                <li class="menu-item" th:if="${#request.isUserInRole('ADMIN') or #request.isUserInRole('STAFF')}">
+                                        		<a th:href="@{/admin/home/index}">Adminstation</a></li>
                                             </ul>
                                         </li>
+                                        
+                                	
+                                <!-- ADMIN -->  
+                                        
                                 </ul>
                             </nav>
                         </div>

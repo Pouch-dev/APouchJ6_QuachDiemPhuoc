@@ -1,0 +1,90 @@
+<div id="DataTables_Table_0_wrapper"
+	class="dataTables_wrapper dt-bootstrap4 no-footer">
+	<div class="row">
+		<div class="col-sm-12 col-md-6">
+			<div class="dataTables_length" id="DataTables_Table_0_length">
+				<label>Show <select name="DataTables_Table_0_length"
+					aria-controls="DataTables_Table_0"
+					class="custom-select custom-select-sm form-control form-control-sm"><option
+							value="10">10</option>
+						<option value="25">25</option>
+						<option value="50">50</option>
+						<option value="100">100</option></select> entries
+				</label>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-6">
+			<div id="DataTables_Table_0_filter" class="dataTables_filter">
+				<label>Search:<input type="search"
+					class="form-control form-control-sm" placeholder=""
+					aria-controls="DataTables_Table_0"></label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<table class="table data-table mb-0 dataTable no-footer"
+				id="DataTables_Table_0" role="grid"
+				aria-describedby="DataTables_Table_0_info">
+				<thead class="table-color-heading">
+					<tr class="text-light" role="row">
+						<th class="sorting sorting_asc"><label class="text-muted m-0">Customer Name</label></th>
+						<th class="sorting" ng-repeat="role in roles" ><label class="text-muted m-0">{{role.maVT}}</label></th>
+						<th class="sorting"><label class="text-muted m-0">Email</label></th>
+						<th class="sorting"><label class="text-muted m-0">Phone</label></th>
+						<th class="sorting"><label class="text-muted mb-0">Inventory</label></th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr class="white-space-no-wrap odd" ng-repeat="acc in admins">
+					<td>{{acc.hoTen}}</td>
+					<td ng-repeat="role in roles"  class="text-center">
+						<input ng-checked="authority_of(acc, role)" ng-click="authority_changed(acc, role)" type="checkbox">
+					</td>
+					<td>{{acc.Email}}</td>
+					<td>{{acc.soDT}}</td>
+					<td>
+						<p class="mb-0 text-success font-weight-bold d-flex justify-content-start align-items-center">
+                           <small><svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24" fill="none">                                                
+                           <circle cx="12" cy="12" r="8" fill="#3cb72c"></circle></svg>
+                           </small>{{acc.trangThai?'Đang Hoạt Động':'Không Hoạt Động'}}
+                       </p>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-5">
+			<div class="dataTables_info" id="DataTables_Table_0_info"
+				role="status" aria-live="polite">Showing {{pager.page +1}} to {{pager.count}} of {{pager.count}} entries</div>
+		</div>
+		<div class="col-sm-12 col-md-7">
+			<div class="dataTables_paginate paging_simple_numbers"
+				id="DataTables_Table_0_paginate">
+				<ul class="pagination">
+					<li class="paginate_button page-item previous"
+						id="DataTables_Table_0_previous"><a ng-click="pager.first()"
+						aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0"
+						class="page-link">First</a></li>
+					<li class="paginate_button page-item previous"
+						id="DataTables_Table_0_previous"><a ng-click="pager.prev()"
+						aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0"
+						class="page-link">Prev</a></li>
+					<li class="paginate_button page-item active"><a href="#"
+						aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0"
+						class="page-link">{{pager.page +1}}</a></li>
+					<li class="paginate_button page-item next"
+						id="DataTables_Table_0_next"><a  ng-click="pager.next()"
+						aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0"
+						class="page-link">Next</a></li>
+					<li class="paginate_button page-item next"
+						id="DataTables_Table_0_next"><a  ng-click="pager.last()"
+						aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0"
+						class="page-link">Last</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

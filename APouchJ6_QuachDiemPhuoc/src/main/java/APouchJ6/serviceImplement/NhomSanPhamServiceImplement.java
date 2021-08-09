@@ -51,8 +51,8 @@ public class NhomSanPhamServiceImplement  implements NhomSanPhamService{
 	}
 
 	@Override
-	public Optional<NhomSanPham> findById(String id) {
-		return NSPDAO.findById(id);
+	public NhomSanPham findById(String id) {
+		return NSPDAO.findById(id).get();
 	}
 
 	@Override

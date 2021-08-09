@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,6 +34,7 @@ public class SanPham implements Serializable{
 	private Float giamGia;
 	private String kichCo;
 	private String moTa;
+	private Date createDate = new Date();
 	private String hinhAnh;
 	private String hinhAnh2;
 	private String slideHinh1;

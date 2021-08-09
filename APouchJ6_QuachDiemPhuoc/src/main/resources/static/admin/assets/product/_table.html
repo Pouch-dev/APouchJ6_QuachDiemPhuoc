@@ -1,0 +1,113 @@
+<div id="DataTables_Table_0_wrapper"
+	class="dataTables_wrapper dt-bootstrap4 no-footer">
+	<div class="row">
+		<div class="col-sm-12 col-md-6">
+			<div class="dataTables_length" id="DataTables_Table_0_length">
+				<label>Show <select name="DataTables_Table_0_length"
+					aria-controls="DataTables_Table_0"
+					class="custom-select custom-select-sm form-control form-control-sm"><option
+							value="10">10</option>
+						<option value="25">25</option>
+						<option value="50">50</option>
+						<option value="100">100</option></select> entries
+				</label>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-6">
+			<div id="DataTables_Table_0_filter" class="dataTables_filter">
+				<label>Search:<input type="search"
+					class="form-control form-control-sm" placeholder=""
+					aria-controls="DataTables_Table_0"></label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<table class="table data-table mb-0 dataTable no-footer"
+				id="DataTables_Table_0" role="grid"
+				aria-describedby="DataTables_Table_0_info">
+				<thead class="table-color-heading">
+					<tr class="text-light" role="row">
+						<th class="sorting sorting_asc"><label class="text-muted m-0">Product Name</label></th>
+						<th class="sorting" ><label class="text-muted mb-0">Category</label></th>
+						<th class="text-right sorting"><label class="text-muted mb-0">Price</label></th>
+						<th class="sorting"><label class="text-muted mb-0">Inventory</label></th>
+						<th class="text-right sorting"><span class="text-muted">Action</span></th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr class="white-space-no-wrap odd" ng-repeat="item in pager.items">
+					<td class="sorting_1">
+						<div class="active-project-1 d-flex align-items-center mt-0 ">
+							<div class="h-avatar is-medium">
+								<img class="avatar rounded"
+									src="/assets/img/product/{{item.hinhAnh}}">
+							</div>
+							<div class="data-content">
+								<div>
+									<span class="font-weight-bold">{{item.tenSP}}</span>
+								</div>
+								<p class="m-0 mt-1">{{item.id}} - {{item.maSP}}</p>
+							</div>
+						</div>
+					</td>
+					<td>{{item.cate.maLoai}}</td>
+					<td class="text-center">${{item.giamGia}} <del>${{item.giaSP}}</del></td>
+					<td>
+						<p class="mb-0 text-success font-weight-bold d-flex justify-content-start align-items-center">
+                           <small><svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24" fill="none">                                                
+                           <circle cx="12" cy="12" r="8" fill="#3cb72c"></circle></svg>
+                           </small>{{item.trangThai?'Còn Hàng':'Hết Hàng'}}
+                       </p>
+					</td>
+					<td>
+						<div class="d-flex align-items-center mb-3">
+							<a ng-click="edit(item)" data-toggle="tooltip" data-placement="top" title="Edit" data-original-title="Edit">
+	                            <svg xmlns="http://www.w3.org/2000/svg" class="text-secondary mx-4" width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+	                            </svg>
+	                        </a>
+							<a ng-click="delete(item)" class="badge bg-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"> 
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+							</a>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-5">
+			<div class="dataTables_info" id="DataTables_Table_0_info"
+				role="status" aria-live="polite">Showing {{pager.page +1}} to {{pager.count}} of {{pager.count}} entries</div>
+		</div>
+		<div class="col-sm-12 col-md-7">
+			<div class="dataTables_paginate paging_simple_numbers"
+				id="DataTables_Table_0_paginate">
+				<ul class="pagination">
+					<li class="paginate_button page-item previous"
+						id="DataTables_Table_0_previous"><a ng-click="pager.first()"
+						aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0"
+						class="page-link">First</a></li>
+					<li class="paginate_button page-item previous"
+						id="DataTables_Table_0_previous"><a ng-click="pager.prev()"
+						aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0"
+						class="page-link">Prev</a></li>
+					<li class="paginate_button page-item active"><a href="#"
+						aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0"
+						class="page-link">{{pager.page +1}}</a></li>
+					<li class="paginate_button page-item next"
+						id="DataTables_Table_0_next"><a  ng-click="pager.next()"
+						aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0"
+						class="page-link">Next</a></li>
+					<li class="paginate_button page-item next"
+						id="DataTables_Table_0_next"><a  ng-click="pager.last()"
+						aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0"
+						class="page-link">Last</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

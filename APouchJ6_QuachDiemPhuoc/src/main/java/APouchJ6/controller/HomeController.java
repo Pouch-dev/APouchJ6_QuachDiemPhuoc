@@ -20,7 +20,7 @@ public class HomeController {
 	
 	
 	@RequestMapping("ApouchJ6/home")
-	public String list(Model model, @RequestParam("cid")Optional<Integer> cid) {
+	public String list(Model model, @RequestParam("cid")Optional<String> cid) {
 		if(cid.isPresent()) {
 			List<SanPham> listP = SPService.findByCateID(cid.get());
 			model.addAttribute("items", listP);
@@ -29,6 +29,17 @@ public class HomeController {
 			model.addAttribute("items", listP);
 		}
 		return "layout/body_index";
+	}
+	
+	@RequestMapping("ApouchJ6/profile")
+	public String profile(Model model) {
+		return "login/profileaccount";
+	}
+	
+	
+	@RequestMapping({"/admin", "/admin/home/index"})
+	public String admin() {
+		return "redirect:/admin/backend/index.html";
 	}
 	
 	@RequestMapping("/product/list")

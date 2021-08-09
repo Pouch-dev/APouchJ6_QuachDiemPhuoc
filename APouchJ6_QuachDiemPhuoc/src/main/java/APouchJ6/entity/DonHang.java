@@ -1,14 +1,20 @@
 package APouchJ6.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -23,16 +29,18 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "DonHang")
 public class DonHang implements Serializable{
-	
-	
 	@Id
-	private Long maDH;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long id;
+	String address;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "Createdate")
+	Date createDate = new Date();
 	@ManyToOne
-	@JoinColumn(name="maND")
-	private NguoiDung customer;
-	private String diaChi;
-	private Integer trangThai;
+	@JoinColumn(name = "Username")
+	NguoiDung account;
+	
 	@JsonIgnore
-	@OneToMany(mappedBy = "orders")
-	private List<ChiTietDonHang> chitiet;
+	@OneToMany(mappedBy = "order")
+	List<ChiTietDonHang> orderDetails;
 }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	th:replace="~{/home/index::dynamic(~{::body})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-block card-stretch">
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table data-table mb-0 dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                        <thead class="table-color-heading">
+                                            <tr class="text-light" role="row"><th scope="col" class="w-01 pr-0 sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+                                             : activate to sort column descending" style="width: 40px;">
+                                                    <div class="d-flex justify-content-start align-items-end mb-1">
+                                                        <div class="custom-control custom-checkbox custom-control-inline">
+                                                        <input type="checkbox" class="custom-control-input m-0" id="customCheck">
+                                                        <label class="custom-control-label" for="customCheck"></label>
+                                                        </div>
+                                                    </div>                                                    
+                                                </th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                                    STT
+                                                : activate to sort column ascending" style="width: 50px;">
+                                                    <label class="text-muted m-0">STT</label>
+                                                </th>
+                                                <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                                    ID
+                                                : activate to sort column ascending" style="width: 50px;">
+                                                    <label class="text-muted m-0">Mã đơn hàng</label>
+                                                </th><th scope="col" class="dates sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                                    Date
+                                                : activate to sort column ascending" style="width: 100px;">
+                                                    <label class="text-muted mb-0">Ngày mua</label>
+                                                </th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                                    Customer
+                                                : activate to sort column ascending" style="width: 100px;">
+                                                    <label class="text-muted mb-0">Tên tài khoản</label>
+                                                </th><th scope="col" class="text-right sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                                    Họ tên
+                                                : activate to sort column ascending" style="width: 120px;">
+                                                    <label class="text-muted mb-0">Họ tên</label>
+                                                </th><th scope="col" class="text-right sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                                    Địa chỉ
+                                                : activate to sort column ascending" style="width: 200px;">
+                                                    <label class="text-muted mb-0">Địa chỉ</label>
+                                                </th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                                    Customer
+                                                : activate to sort column ascending" style="width: 80px;">
+                                                    <label class="text-muted mb-0">Email</label>
+                                                </th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                                    Status
+                                                : activate to sort column ascending" style="width: 100px;">
+                                                    <label class="text-muted mb-0">Trạng Thái</label>
+                                                </th><th scope="col" class="text-right sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                                    Action
+                                                : activate to sort column ascending" style="width: 80px;">
+                                                    <span class="text-muted"></span>
+                                                </th></tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="order,state: ${orders}" class="white-space-no-wrap odd">
+                                                <td class="pr-0 sorting_1">
+                                                    <div class="custom-control custom-checkbox custom-control-inline">
+                                                    <input type="checkbox" class="custom-control-input m-0" id="customCheck1">
+                                                    <label class="custom-control-label" for="customCheck1"></label>
+                                                    </div>                                    
+                                                </td>
+                                                <td>[[${state.index}]]
+                                                <td>[[${order.id}]]</td>
+                                                <td>[[${order.createDate}]]</td>
+                                                <td>[[${order.account.tenTK}]]</td>
+                                                <td>[[${order.account.hoTen}]]</td>
+                                                <td class="text-right">[[${order.address}]]</td>
+                                                <td>[[${order.account.Email}]]</td>
+                                                <td>
+                                                    <p class="mb-0 text-success font-weight-bold d-flex justify-content-start align-items-center">
+                                                        <small><svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24" fill="none">                                                
+                                                        <circle cx="12" cy="12" r="8" fill="#3cb72c"></circle></svg>
+                                                        </small>Completed
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                       <a class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="View" th:href="@{|/order/detail/${order.id}|}">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="text-secondary mx-4" width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="#">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="text-secondary" width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr></tbody>
+                                    </table> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

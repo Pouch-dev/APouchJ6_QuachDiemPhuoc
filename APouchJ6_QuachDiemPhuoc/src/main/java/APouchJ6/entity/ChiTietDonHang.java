@@ -3,6 +3,8 @@ package APouchJ6.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,13 +25,14 @@ public class ChiTietDonHang implements Serializable{
 	
 	
 	@Id
-	private Long maCTDH;
-	private Double gia;
-	private Integer soLuong;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long id;
+	Double price;
+	Integer quantity;
 	@ManyToOne
-	@JoinColumn(name="idSP")
-	private SanPham product;
+	@JoinColumn(name = "Productid")
+	SanPham product;
 	@ManyToOne
-	@JoinColumn(name="maDH")
-	private DonHang orders;
+	@JoinColumn(name = "Orderid")
+	DonHang order;
 }

@@ -59,4 +59,70 @@ app.controller("shopping-cart-ctrl",function($scope,$http){
 	}
 	$scope.cart.loadFromLocalStorage();
 	
+		
+	//Whistlist
+	$scope.list = {
+        items: [],
+        // add new product
+        add(id) {
+            var item = this.items.find(item => item.id == id);
+			alert("Đã thêm vào yêu thích")
+            if (item) { //neu co sp r thi tang sl them 1
+                item.qty++;
+                this.saveToLocalStorage();
+            } else {
+                //Chua co thi tai sp tren sẻver thông qua API
+                $http.get(`/rest/products/${id}`).then(resp => {
+                    resp.data.qty = 1;
+       //Luu vao danh sach cac hang da chon
+                    this.items.push(resp.data);
+                    this.saveToLocalStorage();
+                })
+            }
+        },
+		//Xóa sản phẩm khỏi giỏ hàng
+		remove(id){
+			var index = this.items.findIndex(item => item.id == id);
+			this.items.splice(index,1);
+			this.saveToLocalStorage();
+		},
+		//Lưu giỏ hàng vào local storage
+		saveToLocalStorage(){
+			var json = JSON.stringify(angular.copy(this.items));
+			localStorage.setItem("list",json);
+		},
+		//Đọc giỏ hàng từ local storage
+		loadFromLocalStorage(){
+			var json = localStorage.getItem("list");
+			this.items = json ? JSON.parse(json) : [];
+		}
+	}
+	$scope.list.loadFromLocalStorage();
+	
+	$scope.order = {
+		createDate: new Date(),
+		address: "",
+		account: {tenTK:$("#username").text()},
+		get orderDetails(){
+			return $scope.cart.items.map(item =>{
+				return{
+					product:{id:item.id},
+					price:item.giamGia,
+					quantity:item.qty
+				}
+			});
+		},
+		purchase(){
+			var order = angular.copy(this);
+			//thực hiện đặt hàng
+			$http.post("/rest/orders", order).then(resp =>{
+			alert("đặt hàng thành công");
+			$scope.cart.clear();
+			location.href = "/order/detail/"+resp.data.id;
+		}).catch(error => {
+		alert("Đặt hàng lỗi")
+		console.log(error)
+		})
+	}
+	}
 });

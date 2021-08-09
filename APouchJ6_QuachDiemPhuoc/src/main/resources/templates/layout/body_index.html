@@ -216,7 +216,7 @@
                                                     <div class="product__action">
                                                         <div class="inner__action">
                                                             <div class="wishlist">
-                                                                <a href="#"><i class="fal fa-heart"></i></a>
+                                                                <a th:attr="ng-click= @{|list.add(${p.id})|}"><i class="fal fa-heart"></i></a>
                                                             </div>
                                                             <div class="view">
                                                                 <a href="javascript:void(0)"><i class="fal fa-eye"></i></a>

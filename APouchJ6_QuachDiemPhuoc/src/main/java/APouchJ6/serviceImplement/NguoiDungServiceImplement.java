@@ -51,8 +51,8 @@ public class NguoiDungServiceImplement  implements NguoiDungService{
 	}
 
 	@Override
-	public Optional<NguoiDung> findById(String id) {
-		return NDDAO.findById(id);
+	public NguoiDung findById(String id) {
+		return NDDAO.findById(id).get();
 	}
 
 	@Override
@@ -153,6 +153,11 @@ public class NguoiDungServiceImplement  implements NguoiDungService{
 	@Override
 	public <S extends NguoiDung> List<S> findAll(Example<S> example, Sort sort) {
 		return NDDAO.findAll(example, sort);
+	}
+
+	@Override
+	public List<NguoiDung> getAdministrator() {
+		return NDDAO.getAdministrator();
 	}
 	
 	

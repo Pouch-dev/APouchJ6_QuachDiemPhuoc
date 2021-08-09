@@ -51,8 +51,8 @@ public class LoaiSanPhamServiceImplement  implements LoaiSanPhamService{
 	}
 
 	@Override
-	public Optional<LoaiSanPham> findById(String id) {
-		return LSPDAO.findById(id);
+	public LoaiSanPham findById(String id) {
+		return LSPDAO.findById(id).get();
 	}
 
 	@Override

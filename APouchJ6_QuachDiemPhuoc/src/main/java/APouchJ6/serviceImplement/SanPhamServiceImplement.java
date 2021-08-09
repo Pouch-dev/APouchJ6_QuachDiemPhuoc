@@ -156,9 +156,23 @@ public class SanPhamServiceImplement  implements SanPhamService{
 	}
 
 	@Override
-	public List<SanPham> findByCateID(Integer cid) {
-		// TODO Auto-generated method stub
+	public List<SanPham> findByCateID(String cid) {
 		return SPDAO.findByCateID(cid);
+	}
+
+	@Override
+	public SanPham create(SanPham sanpham) {
+		return SPDAO.save(sanpham);
+	}
+
+	@Override
+	public SanPham update(SanPham sanpham) {
+		return SPDAO.save(sanpham);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		 SPDAO.deleteById(id);
 	}
 
 	

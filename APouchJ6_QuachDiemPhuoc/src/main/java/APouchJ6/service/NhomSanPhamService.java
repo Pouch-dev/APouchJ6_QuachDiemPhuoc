@@ -52,7 +52,7 @@ public interface NhomSanPhamService {
 
 	<S extends NhomSanPham> List<S> saveAll(Iterable<S> entities);
 
-	Optional<NhomSanPham> findById(String id);
+	NhomSanPham findById(String id);
 
 	List<NhomSanPham> findAllById(Iterable<String> ids);
 

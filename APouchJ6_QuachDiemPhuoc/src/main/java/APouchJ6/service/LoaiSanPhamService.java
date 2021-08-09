@@ -52,7 +52,7 @@ public interface LoaiSanPhamService {
 
 	<S extends LoaiSanPham> List<S> saveAll(Iterable<S> entities);
 
-	Optional<LoaiSanPham> findById(String id);
+	LoaiSanPham findById(String id);
 
 	List<LoaiSanPham> findAllById(Iterable<String> ids);
 

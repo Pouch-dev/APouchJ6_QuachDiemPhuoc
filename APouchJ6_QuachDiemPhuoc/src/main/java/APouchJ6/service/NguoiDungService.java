@@ -52,7 +52,7 @@ public interface NguoiDungService {
 
 	<S extends NguoiDung> List<S> saveAll(Iterable<S> entities);
 
-	Optional<NguoiDung> findById(String id);
+	NguoiDung findById(String id);
 
 	List<NguoiDung> findAllById(Iterable<String> ids);
 
@@ -66,4 +66,6 @@ public interface NguoiDungService {
 
 	<S extends NguoiDung> S save(S entity);
 
+	List<NguoiDung> getAdministrator();
+	
 }

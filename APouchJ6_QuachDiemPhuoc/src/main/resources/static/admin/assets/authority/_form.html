@@ -1,0 +1,88 @@
+<div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <div class="card-body rounded mb-3">
+                                    <div class="d-flex justify-content-center mt-2 mb-5">
+                                    <label for="hinhAnh">
+                                        <img style="width: 100%;" ng-src="{{'/assets/img/product/'+form.hinhAnh}}" class="mb-0 text-muted font-weight-bold">
+                                    </label>
+                                    </div>
+                                </div>
+                                <div class="custom-file mb-3">
+                           			<input type="file" class="custom-file-input" id="hinhAnh" onchange="angular.element(this).scope().imageChanged(this.files)">
+                          			<label class="custom-file-label" for="hinhAnh">Choose file</label>
+                        		</div>
+                            </div>
+                            <div class="col-md-9">
+                                <form class="row g-3 date-icon-set-modal">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="Text1" class="form-label font-weight-bold text-muted text-uppercase">Mã Sản Phẩm</label>
+                                        <input ng-model="form.maSP" type="text" class="form-control" id="Text1" placeholder="Vui lòng nhập Mã Sản Phẩm">
+                                    </div>
+                                    <div class="col-md-6 mb-3 position-relative">
+                                        <label for="Text2" class="form-label font-weight-bold text-muted text-uppercase">Tên Sản Phẩm</label>
+                                        <input ng-model="form.tenSP" type="text" class="form-control vanila-datepicker datepicker-input" id="Text2" name="event_date" placeholder="Vui lòng nhập Tên Sản Phẩm" autocomplete="off">
+                                    </div>
+                                    <div class="col-md-6 mb-3 position-relative">
+                                        <label for="Text2" class="form-label font-weight-bold text-muted text-uppercase">Đơn Giá</label>
+                                        <input ng-model="form.giaSP" type="text" class="form-control vanila-datepicker datepicker-input" id="Text2" name="event_date" placeholder="Vui lòng nhập Tên Sản Phẩm" autocomplete="off">
+                                    </div>
+                                    <div class="col-md-6 mb-3 position-relative">
+                                        <label for="Text2" class="form-label font-weight-bold text-muted text-uppercase">Giảm Giá</label>
+                                        <input ng-model="form.giamGia" type="text" class="form-control vanila-datepicker datepicker-input" id="Text2" name="event_date" placeholder="Vui lòng nhập Tên Sản Phẩm" autocomplete="off">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="Text4" class="form-label font-weight-bold text-muted text-uppercase">Loại Sản Phẩm</label>
+                                        <select ng-model="form.cate.maLoai" class="form-control" id="inputGroupSelect01">
+				                           <option ng-repeat="c in cates" ng-value="c.maLoai">{{c.tenLoai}}</option>
+				                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="inputcountry" class="form-label font-weight-bold text-muted text-uppercase">Nhóm Sản Phẩm</label>
+                                        <input ng-model="form.cate.groupL.tenNhom" type="text" class="form-control" id="Text4" placeholder="Vui lòng nhập Mã Nhà Sản Phẩm">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="Text6" class="form-label font-weight-bold text-muted text-uppercase">Video</label>
+                                        <input ng-model="form.video" type="text" class="form-control" id="Text6" placeholder="Thêm Video">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label font-weight-bold text-muted text-uppercase">Trạng thái</label><br>
+                                        <div class="form-check form-check-inline">
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input ng-model="form.trangThai" ng-value="true" type="radio" id="inlineRadio1" name="customRadio-1" class="custom-control-input">
+                                                <label class="custom-control-label" for="inlineRadio1"> Còn Hàng </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input ng-model="form.trangThai" ng-value="false" type="radio" id="inlineRadio2" name="customRadio-1" class="custom-control-input">
+                                                <label class="custom-control-label" for="inlineRadio2"> Hết Hàng </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <label for="Text9" class="form-label font-weight-bold text-muted text-uppercase">Mô Tả</label>
+                                        <textarea class="form-control" id="Text9" rows="2" placeholder="Thêm Mô Tả"></textarea>
+                                    </div>
+                                </form>
+                                <div class="d-flex justify-content-end ">
+                                    <button ng-click="create()" style="margin-left: 10px;" class="btn btn-primary">
+                                        Tạo Mới
+                                    </button>
+                                    <button ng-click="update()" style="margin-left: 10px;" class="btn btn-success">
+                                        Cập nhật
+                                    </button>
+                                    <button ng-click="delete(form)" style="margin-left: 10px;" class="btn btn-danger">
+                                        Xóa
+                                    </button>
+                                    <button ng-click="reset()" style="margin-left: 10px;" class="btn btn-info">
+                                        Làm Mới
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
